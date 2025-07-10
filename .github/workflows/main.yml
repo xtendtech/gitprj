@@ -1,17 +1,11 @@
-name: Deploy via SSH
+name: Hello World
 on:
-  push:
-    branches:
-      - main  # Trigger action on pushes to the 'main' branch
+  - push
 jobs:
-  deploy:
-  steps:
-     - name: Execute remote SSH commands using password
-  on: [push, workflow_dispatch]
-  uses: appleboy/ssh-action@v1
-  with:
-        host: ${{ secrets.HOST }}
-        username: ${{ vars.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
- script:  whoami
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Say Hello
+        run: echo "Hello, World!"
