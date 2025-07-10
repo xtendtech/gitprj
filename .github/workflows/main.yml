@@ -1,4 +1,6 @@
-- name: Execute remote SSH commands using password
+name: Execute remote SSH commands using password
+on: [push, workflow_dispatch]
+
   uses: appleboy/ssh-action@v1
   with:
     host: ${{ secrets.HOST }}
