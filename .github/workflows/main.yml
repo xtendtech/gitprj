@@ -1,22 +1,17 @@
 name: Deploy via SSH
-
 on:
   push:
     branches:
       - main  # Trigger action on pushes to the 'main' branch
-
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    
-    - name: Execute remote SSH commands using password
-    on: [push, workflow_dispatch]
-    uses: appleboy/ssh-action@v1
-    with:
+  steps:
+     - name: Execute remote SSH commands using password
+  on: [push, workflow_dispatch]
+  uses: appleboy/ssh-action@v1
+  with:
         host: ${{ secrets.HOST }}
         username: ${{ vars.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: 22
-    script: whoami
+ script:  whoami
