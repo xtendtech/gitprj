@@ -4,13 +4,13 @@
   uses: appleboy/ssh-action@v1.0.3
   with:
     # SSH host address.
-    host: 129.153.75.63
+    host: ${{ secrets.ORA1_SERV }}
     # SSH port number.
     port: # optional, default is 22
     # Passphrase for the SSH key.
-    passphrase: ubuntu
+    #   passphrase: ubuntu
     # SSH username.
-    username: # optional
+    username: ubuntu
     # SSH password.
     password: # optional
     # Enable synchronous execution if multiple hosts are involved.
@@ -24,7 +24,7 @@
     # Timeout duration for SSH commands execution.
     command_timeout: # optional, default is 10m
     # Content of the SSH private key. For example, the raw content of ~/.ssh/id_rsa.
-    key: # optional
+    key: ${{ secrets.SSH_KEY }}
     # Path to the SSH private key file.
     key_path: # optional
     # SHA256 fingerprint of the host public key.
