@@ -11,7 +11,7 @@ jobs:
         with:
           host: ${{ vars.ORA1_SERV}}
           username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ vars.SSH_KEY }}
           # port: ${{ secrets.PORT }}
           script: whoami
   
